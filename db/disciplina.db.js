@@ -5,8 +5,8 @@ module.exports = {
     async getDisciplinas(){
         let p = new Promise(async (resolve, reject) => {
             pool.getConnection(async function (err, connection) {
-                let select = `SELECT id, descricao, codigo
-                FROM disciplina`
+                let select = `SELECT nome, prazo, premio
+                FROM desafios`
                 pool.query(select, (err, res) => {
                     if (!err) {
                         resolve(res)
