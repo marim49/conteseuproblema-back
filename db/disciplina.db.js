@@ -23,13 +23,13 @@ module.exports = {
 
     },
 
-    async createDisciplina(descricao, codigo) {
+    async createDisciplina(nome_desafio, setor, regras, requisitos, premio, data_expiracao, data_criacao) {
         pool.getConnection(function(err, connection) {
             if (err) throw err;
-            const insert = `INSERT INTO disciplina (descricao, codigo)
-                            VALUES(?, ?);`
-            const values = [descricao, codigo]
-            
+            const insert = `INSERT INTO desafios (nome, setor, regras, requisitos, premio, prazo, data_criacao)
+                            VALUES(?, ?, ?, ?, ?, ?, ?);`
+            const values = [nome_desafio, setor, regras, requisitos, premio, data_expiracao, data_criacao]
+            console.log(insert, values);
                 let results = connection.query(insert, values, function(error, results, fields){
                     connection.release();
                     // Handle error after the release.

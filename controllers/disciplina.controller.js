@@ -13,8 +13,8 @@ routes.get('/disciplina', wrap(async (req, res) => {
 })),
 
 routes.post('/create', (req, res) => {
-    let { descricao, codigo } = req.body
-    disciplinaHelper.createDisciplina(descricao, codigo)
+    let { nome_desafio, setor, regras, requisitos, premio, data_expiracao, data_criacao } = req.body
+    disciplinaHelper.createDisciplina(nome_desafio, setor, regras, requisitos, premio, data_expiracao, data_criacao)
     
 })
 
