@@ -12,11 +12,11 @@ routes.get('/disciplina', wrap(async (req, res) => {
     res.json(results)
 })),
 
-routes.post('/create', (req, res) => {
+routes.post('/create', wrap(async (req, res) => {
     let { nome_desafio, setor, regras, requisitos, premio, data_expiracao, data_criacao } = req.body
-    disciplinaHelper.createDisciplina(nome_desafio, setor, regras, requisitos, premio, data_expiracao, data_criacao)
-    
-})
+    let oi = await disciplinaHelper.createDisciplina(nome_desafio, setor, regras, requisitos, premio, data_expiracao, data_criacao)
+    res.json(oi)
+}))
 
 
 module.exports = routes

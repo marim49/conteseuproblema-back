@@ -11,7 +11,7 @@ module.exports = {
     },
 
     async createDisciplina(nome_desafio, setor, regras, requisitos, premio, data_expiracao, data_criacao){
-            return disciplinaDB.createDisciplina(nome_desafio, setor, regras, requisitos, premio, data_expiracao, data_criacao)
-        
+            disciplinaDB.createDisciplina(nome_desafio, setor, regras, requisitos, premio, data_expiracao, data_criacao)
+            return { success: true }
     },
 }
