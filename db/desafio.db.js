@@ -2,7 +2,7 @@ const pool = require('../lib/pool')
 
 module.exports = {
 
-    async getDisciplinas(){
+    async getDesafios(){
         let p = new Promise(async (resolve, reject) => {
             pool.getConnection(async function (err, connection) {
                 let select = `SELECT nome, prazo, premio
@@ -23,7 +23,7 @@ module.exports = {
 
     },
 
-    async createDisciplina(nome_desafio, setor, regras, requisitos, premio, data_expiracao, data_criacao) {
+    async createDesafio(nome_desafio, setor, regras, requisitos, premio, data_expiracao, data_criacao) {
         pool.getConnection(function(err, connection) {
             if (err) throw err;
             const insert = `INSERT INTO desafios (nome, setor, regras, requisitos, premio, prazo, data_criacao)
